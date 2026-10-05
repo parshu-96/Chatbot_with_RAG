@@ -1,3 +1,20 @@
 spring:
   application:
-    name: rag_demo
+    name: rag-ecommerce-support
+
+  # OpenAI - used for both embeddings and the final answer
+  ai:
+    openai:
+      api-key: ${OPEN_AI_API_KEY}
+      chat:
+        model: gpt-5-mini
+      embedding:
+        model: text-embedding-3-small
+        dimensions: 1024
+
+    # Pinecone
+    vectorstore:
+      pinecone:
+        api-key: ${PINECONE_API_KEY}
+        index-name: shop-support
+        namespace: policies
